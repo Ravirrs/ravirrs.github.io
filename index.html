@@ -1,1 +1,126 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project - Signup Form</title>
+<style>@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+* {
+  margin: 0
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #b5b5b5;
+}
+
+h1 {
+  color: white;
+  font-family: "Oswald", sans-serif;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.registartion-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  color: #fff;
+  font-size: 18px;
+  font-family: sans-serif;
+  background-color: #5c5154;
+  padding: 20px;
+}
+
+.registartion-form input,
+.registartion-form select,
+.registartion-form textarea {
+  border: none;
+  padding: 5px;
+  margin-top: 10px;
+  font-family: sans-serif;
+}
+
+.registartion-form input:focus,
+.registartion-form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgb(228, 228, 228), 0 0 10px rgb(224, 224, 224);
+}
+
+.registartion-form .submit {
+  width: 100%;
+  padding: 8px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.registartion-form .submit:hover {
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+ 
+}</style></head>
+
+<body>
+  <div class="container">
+    <h1>SignUp</h1>
+    <form name="registration" class="registartion-form" onsubmit="return formValidation()">
+      <table>
+        <tr>
+          <td><label for="name">Name:</label></td>
+    
+          <td><input type="text" name="name" id="name" placeholder="Vijay Raj"></td>
+        </tr>
+        <tr>
+          <td><label for="email">Email:</label></td>
+          <td><input type="text" name="email" id="email" placeholder="Example@email.com"></td>
+        </tr>
+        <tr>
+          <td><label for="password">Password:</label></td>
+          <td><input type="password" name="password" id="password" placeholder="At least 8 characters alphanumeric"></td>
+        <tr>
+          <td colspan="2"><input type="submit" class="submit" value="SignUp" /></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+<script>
+const userName = document.getElementById("name");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+
+
+
+function formValidation() {
+  
+  if (userName.value.length < 2 || userName.value.length > 20) {
+    alert("Name length should be more than 2 and less than 21 charaters");
+    userName.focus();
+    return false;
+  }
+  
+  if (email.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+    alert("Please enter a valid email!");
+    email.focus();
+    return false;
+  }
+ 
+  if (password.value.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/)) {
+    alert("Password must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character, and must be between 8 and 15 characters long.");
+    password.focus();
+    return false;
+  }
+  
+  
+  return true;
+}</script></body>
+
+</html>
